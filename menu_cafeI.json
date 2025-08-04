@@ -1,0 +1,12 @@
+[
+  {"item": "Espresso", "price": 60},
+  {"item": "Cappuccino", "price": 80},
+  {"item": "Latte", "price": 90},
+  {"item": "Mocha", "price": 100},
+  {"item": "Americano", "price": 70},
+  {"item": "Hot Chocolate", "price": 85},
+  {"item": "Iced Coffee", "price": 95},
+  {"item": "Tea", "price": 50},
+  {"item": "Croissant", "price": 40},
+  {"item": "Muffin", "price": 45}
+]

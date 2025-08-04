@@ -1,0 +1,49 @@
+Smart CTS Cafe System - Multi-Cafe & Menu Documentation
+========================================================
+
+Overview
+--------
+This app now supports three separate cafes (Cafe I, Cafe II, Cafe III), each with its own menu and order management. Users select a cafe from the main window, and all actions (ordering, staff management, searching) use the selected cafe's menu and orders file.
+
+Cafe Selection
+--------------
+- On startup, the app shows buttons for Cafe I, Cafe II, and Cafe III.
+- After selecting a cafe, the main menu appears for that cafe.
+
+Menu Files
+----------
+- Each cafe has its own menu file:
+  - `menu_cafeI.json`: 10 coffee shop items
+  - `menu_cafeII.json`: 10 fast food items
+  - `menu_cafeIII.json`: 10 Indian snacks & drinks
+- The app loads the correct menu file based on the selected cafe.
+
+Order Files
+-----------
+- Each cafe has its own orders file:
+  - `orders_cafeI.json`
+  - `orders_cafeII.json`
+  - `orders_cafeIII.json`
+- Orders are saved and managed separately for each cafe.
+
+Customer & Staff Modules
+------------------------
+- When a cafe is selected, both customer and staff modules use the correct menu and orders file.
+- The customer order screen and staff dashboard reflect the selected cafe's menu and orders.
+
+How to Add/Change Menu Items
+----------------------------
+- Edit the appropriate menu file (`menu_cafeI.json`, `menu_cafeII.json`, `menu_cafeIII.json`) to update items and prices.
+- Each menu file is a JSON array of objects: `{ "item": "Item Name", "price": Price }`
+
+How to Add/Change Cafes
+-----------------------
+- To add a new cafe, create a new menu and orders file, and update the app's cafe selection logic.
+
+How the Code Works
+------------------
+- The main app passes the selected cafe to customer and staff modules.
+- The modules load the correct menu and orders file using the selected cafe name.
+- All order, search, and staff actions are isolated per cafe.
+
+This structure allows easy management and reporting for multiple cafes, each with its own menu and orders.

@@ -1,0 +1,12 @@
+[
+  {"item": "Burger", "price": 120},
+  {"item": "Sandwich", "price": 100},
+  {"item": "Fries", "price": 80},
+  {"item": "Pizza", "price": 150},
+  {"item": "Pasta", "price": 130},
+  {"item": "Salad", "price": 90},
+  {"item": "Soup", "price": 70},
+  {"item": "Wrap", "price": 110},
+  {"item": "Juice", "price": 60},
+  {"item": "Brownie", "price": 50}
+]

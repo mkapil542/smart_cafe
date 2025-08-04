@@ -1,0 +1,96 @@
+Line-by-Line Code Explanation for Cafeteria Report Feature
+==========================================================
+
+--- main.py: save_order function ---
+
+1. import tkinter as tk           # Imports the tkinter library for GUI.
+2. from tkinter import messagebox # Imports messagebox for popup messages.
+3. from datetime import datetime  # Imports datetime for timestamps.
+4. import json                    # Imports json for reading/writing order data.
+5. import uuid                    # Imports uuid for generating unique order IDs.
+
+7. MENU_ITEMS = {...}             # Dictionary of menu items and their prices.
+
+10. def save_order(name, selections, pickup_time, comments):
+11.     order_id = str(uuid.uuid4())[:8]   # Generates a unique order ID (first 8 chars).
+12.     total = 0                         # Initializes total price.
+13.     item_summary = []                 # List to store item details for the order.
+
+15.     for item, qty in selections.items(): # Loops through selected items and quantities.
+16.         if qty > 0:                       # Only process items with quantity > 0.
+17.             price = MENU_ITEMS[item]      # Gets price for the item.
+18.             subtotal = qty * price        # Calculates subtotal for the item.
+19.             total += subtotal             # Adds subtotal to total price.
+20.             item_summary.append(f"{item} x{qty} — ₹{subtotal}") # Adds item info to summary.
+
+22.     if not item_summary:                  # If no items selected...
+23.         messagebox.showerror("No Items Selected", "Select at least one item with quantity > 0.")
+24.         return                            # ...show error and exit function.
+
+26.     order_data = {                        # Creates a dictionary for the order.
+27.         "order_id": order_id,
+28.         "name": name,
+29.         "items": item_summary,
+30.         "total_price": total,
+31.         "pickup_time": pickup_time,
+32.         "comments": comments if comments else "N/A",
+33.         "timestamp": datetime.now().isoformat()
+34.     }
+
+36.     try:
+37.         with open("orders.json", "r") as f:
+38.             orders = json.load(f)         # Loads existing orders from file.
+39.     except FileNotFoundError:
+40.         orders = []                       # If file not found, start with empty list.
+
+42.     orders.append(order_data)             # Adds new order to the list.
+43.     with open("orders.json", "w") as f:
+44.         json.dump(orders, f, indent=2)    # Saves all orders back to file.
+
+--- staff.py: open_staff_window function ---
+
+1. import tkinter as tk           # Imports tkinter for GUI.
+2. from tkinter import messagebox # Imports messagebox for popups.
+3. import json                    # Imports json for reading orders.
+
+7. def open_staff_window():
+8.     try:
+9.         with open("orders.json", "r") as f:
+10.            orders = json.load(f)         # Loads all orders from file.
+11.    except FileNotFoundError:
+12.        orders = []                       # If file not found, use empty list.
+
+14.    staff_win = tk.Toplevel()             # Creates a new window for staff dashboard.
+15.    staff_win.title("Staff Corner")       # Sets window title.
+
+16.    tk.Label(staff_win, text="Current Orders", font=("Arial", 14, "bold")).pack(pady=5) # Adds header label.
+
+17.    for order in orders:
+18.        order_text = (
+19.            f"Order ID: {order.get('order_id', 'N/A')}\n"
+20.            f"Name: {order.get('name', 'N/A')}\n"
+21.            f"Items: {order.get('items', 'N/A')}\n"
+22.            f"Pickup Time: {order.get('pickup_time', 'N/A')}\n"
+23.            f"Comments: {order.get('comments', 'N/A')}\n"
+24.        )
+25.        tk.Label(staff_win, text=order_text, justify="left", anchor="w").pack(padx=10, pady=2) # Displays each order.
+
+--- staff.py: (example) generate_report function ---
+
+1. def generate_report():
+2.     with open("orders.json", "r") as f:
+3.         orders = json.load(f)             # Loads all orders.
+4.     total_orders = len(orders)            # Counts total orders.
+5.     total_sales = sum(order['total_price'] for order in orders) # Sums total sales.
+6.     item_counts = {}
+7.     for order in orders:
+8.         for item in order['items']:
+9.             name = item.split(' x')[0]    # Extracts item name.
+10.            item_counts[name] = item_counts.get(name, 0) + int(item.split('x')[1].split('—')[0].strip()) # Adds quantity.
+11.    # Display report (e.g., in a popup)
+12.    report_text = f"Total Orders: {total_orders}\nTotal Sales: ₹{total_sales}\n"
+13.    for item, count in item_counts.items():
+14.        report_text += f"{item}: {count}\n"
+15.    messagebox.showinfo("Report", report_text)
+
+This file explains each line of the main logic for saving orders, viewing orders, and generating a report in your cafeteria app.

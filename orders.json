@@ -1,0 +1,14 @@
+[
+  {
+    "order_id": "ae11d8ad",
+    "name": "B",
+    "items": [
+      "\u2615 Coffee x1 \u2014 \u20b9120"
+    ],
+    "total_price": 120,
+    "pickup_time": "12:00",
+    "comments": "N/A",
+    "timestamp": "2025-08-04T12:00:01.262597",
+    "status": "Cancelled"
+  }
+]

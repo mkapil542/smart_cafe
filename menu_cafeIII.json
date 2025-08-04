@@ -1,0 +1,12 @@
+[
+  {"item": "Paneer Tikka", "price": 140},
+  {"item": "Samosa", "price": 30},
+  {"item": "Chole Bhature", "price": 110},
+  {"item": "Dosa", "price": 90},
+  {"item": "Idli", "price": 60},
+  {"item": "Vada", "price": 50},
+  {"item": "Poha", "price": 40},
+  {"item": "Upma", "price": 45},
+  {"item": "Lassi", "price": 55},
+  {"item": "Gulab Jamun", "price": 35}
+]

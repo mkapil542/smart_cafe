@@ -1,0 +1,6 @@
+[
+  {"item": "Burger", "price": 50},
+  {"item": "Sandwich", "price": 40},
+  {"item": "Coffee", "price": 30},
+  {"item": "Tea", "price": 20}
+]

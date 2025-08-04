@@ -1,0 +1,45 @@
+Step-by-Step Code Explanation for Cafeteria Report Feature
+============================================================
+
+1. Order Creation (main.py)
+---------------------------
+- The function `save_order` in `main.py` is responsible for saving customer orders.
+- Each order includes: order_id, name, items (with quantities and prices), total_price, pickup_time, comments, and timestamp.
+- Orders are stored in the file `orders.json` as a list of dictionaries.
+
+2. Staff Login (staff.py)
+-------------------------
+- Staff access the dashboard by logging in through a GUI window (`open_login_window`).
+- Credentials are checked (username: admin, password: cts123).
+- On successful login, the staff dashboard window opens.
+
+3. Staff Dashboard (staff.py)
+-----------------------------
+- The function `open_staff_window` loads all orders from `orders.json`.
+- Orders are displayed in the dashboard for staff to review.
+
+4. Report Generation (staff.py)
+-------------------------------
+- To generate a report, a new function (e.g., `generate_report`) can be added to `staff.py`.
+- This function will:
+  a. Read all orders from `orders.json`.
+  b. Calculate total number of orders.
+  c. Calculate total sales (sum of total_price).
+  d. Count how many times each item was ordered.
+- The report can be shown in a popup or a new window for staff.
+
+5. Example Report Function (staff.py)
+-------------------------------------
+- Add a button "Generate Report" in the staff dashboard.
+- When clicked, call `generate_report` to display:
+    - Total orders
+    - Total sales
+    - Item breakdown (e.g., Coffee: 10, Tea: 5)
+
+6. Summary
+----------
+- Orders are created and saved in `main.py`.
+- Staff view and manage orders in `staff.py`.
+- Report generation is an extension in `staff.py` to help staff analyze sales and item popularity.
+
+This workflow allows staff to easily review and analyze cafeteria performance using the existing code structure.
