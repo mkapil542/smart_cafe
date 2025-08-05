@@ -3,7 +3,7 @@ Smart CTS Cafe System - Multi-Cafe & Menu Documentation
 
 Overview
 --------
-This app now supports three separate cafes (Cafe I, Cafe II, Cafe III), each with its own menu and order management. Users select a cafe from the main window, and all actions (ordering, staff management, searching) use the selected cafe's menu and orders file.
+This app supports three separate cafes (Cafe I, Cafe II, Cafe III), each with its own menu and order management. Users select a cafe from the main window, and all actions (ordering, staff management, searching) use the selected cafe's menu and orders file.
 
 Cafe Selection
 --------------

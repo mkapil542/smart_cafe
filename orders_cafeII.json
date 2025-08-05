@@ -1,0 +1,15 @@
+[
+  {
+    "order_id": "57d0e05e",
+    "name": "ars",
+    "items": [
+      "Burger x6 \u2014 \u20b9720",
+      "Salad x3 \u2014 \u20b9270"
+    ],
+    "total_price": 990,
+    "pickup_time": "21:00",
+    "comments": "N/A",
+    "timestamp": "2025-08-05T17:43:15.142916",
+    "status": "Pending"
+  }
+]
